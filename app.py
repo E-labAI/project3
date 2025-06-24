@@ -2,6 +2,7 @@ import gradio as gr
 import tensorflow as tf
 import numpy as np
 
+
 # Load the trained model (now using ResNet50-based model)
 model = tf.keras.models.load_model("modelo_entrenado_resnet50.keras")
 
