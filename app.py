@@ -36,13 +36,14 @@ def predict_image(image):
 custom_theme = gr.themes.Base(
     primary_hue="indigo",  # Color principal del botón, barra superior, etc.
     neutral_hue="gray",    # Color base de fondo y texto
-    font=["sans-serif"],   # Fuente
 ).set(
-    background_fill_primary="#f0f4f8",  # Color de fondo claro
-    border_color_primary="#4b5563",     # Bordes de secciones
-    text_color_primary="#111827",       # Texto principal
-    button_primary_background_fill="#4f46e5",  # Botón principal
-    button_primary_text_color="#ffffff"
+    # Tokens válidos
+    body_background_fill="#f0f4f8",         # Fondo general claro
+    block_border_width="1px",
+    block_border_color="#d1d5db",           # Color de bordes
+    button_primary_background_fill="#6366f1",  # Botón principal (azul indigo)
+    button_primary_text_color="#ffffff",    # Texto de botón blanco
+    button_primary_background_fill_hover="#4f46e5"
 )
 
 # Create interface
