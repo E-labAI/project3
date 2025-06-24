@@ -31,13 +31,27 @@ def predict_image(image):
     # Return top predictions
     return {class_names[i]: float(score[i]) for i in range(len(class_names))}
 
+# Crear un tema personalizado (por ejemplo, con colores suaves y contrastes agradables)
+custom_theme = gr.themes.Base(
+    primary_hue="indigo",  # Color principal del botón, barra superior, etc.
+    neutral_hue="gray",    # Color base de fondo y texto
+    font=["sans-serif"],   # Fuente
+).set(
+    background_fill_primary="#f0f4f8",  # Color de fondo claro
+    border_color_primary="#4b5563",     # Bordes de secciones
+    text_color_primary="#111827",       # Texto principal
+    button_primary_background_fill="#4f46e5",  # Botón principal
+    button_primary_text_color="#ffffff"
+)
+
 # Create interface
 interface = gr.Interface(
     fn=predict_image,
     inputs=gr.Image(type="numpy"),
     outputs=gr.Label(num_top_classes=5),  # Show top 5 predictions
-    title="Clasificador de mariposas y polillas (ResNet50)",
-    description="Carga una imagen de lepidópteros y obtén la predicción del modelo basado en ResNet50"
+    title="🦋 Clasificador de mariposas y polillas (ResNet50)",
+    description="Sube una imagen de un lepidóptero y el modelo te dirá si es una mariposa o una polilla.",
+    theme=custom_theme
 )
 
 interface.launch()
