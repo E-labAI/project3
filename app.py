@@ -2,6 +2,7 @@ import gradio as gr
 import tensorflow as tf
 import numpy as np
 
+
 # Load the trained model (now using ResNet50-based model)
 model = tf.keras.models.load_model("modelo_entrenado_resnet50.keras")
 
@@ -31,13 +32,28 @@ def predict_image(image):
     # Return top predictions
     return {class_names[i]: float(score[i]) for i in range(len(class_names))}
 
+# Crear un tema personalizado (por ejemplo, con colores suaves y contrastes agradables)
+custom_theme = gr.themes.Base(
+    primary_hue="indigo",  # Color principal del botón, barra superior, etc.
+    neutral_hue="gray",    # Color base de fondo y texto
+).set(
+    # Tokens válidos
+    body_background_fill="#f0f4f8",         # Fondo general claro
+    block_border_width="1px",
+    block_border_color="#d1d5db",           # Color de bordes
+    button_primary_background_fill="#6366f1",  # Botón principal (azul indigo)
+    button_primary_text_color="#ffffff",    # Texto de botón blanco
+    button_primary_background_fill_hover="#4f46e5"
+)
+
 # Create interface
 interface = gr.Interface(
     fn=predict_image,
     inputs=gr.Image(type="numpy"),
     outputs=gr.Label(num_top_classes=5),  # Show top 5 predictions
-    title="Clasificador de mariposas y polillas (ResNet50)",
-    description="Carga una imagen de lepidópteros y obtén la predicción del modelo basado en ResNet50"
+    title="🦋 Clasificador de mariposas y polillas (ResNet50)",
+    description="Sube una imagen de un lepidóptero y el modelo te dirá si es una mariposa o una polilla.",
+    theme=custom_theme
 )
 
 interface.launch()
