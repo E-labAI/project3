@@ -38,7 +38,7 @@ custom_theme = gr.themes.Base(
     neutral_hue="gray",    # Color base de fondo y texto
 ).set(
     # Tokens válidos
-    body_background_fill="#f0f4f8",         # Fondo general claro
+    body_background_fill="#618fbd",         # Fondo general claro
     block_border_width="1px",
     block_border_color="#d1d5db",           # Color de bordes
     button_primary_background_fill="#6366f1",  # Botón principal (azul indigo)
@@ -52,7 +52,7 @@ interface = gr.Interface(
     inputs=gr.Image(type="numpy"),
     outputs=gr.Label(num_top_classes=5),  # Show top 5 predictions
     title="🦋 Clasificador de mariposas y polillas (ResNet50)",
-    description="Sube una imagen de un lepidóptero y el modelo te dirá si es una mariposa o una polilla.",
+    description="Sube una imagen de un lepidóptero y el modelo te dirá la especie.",
     theme=custom_theme
 )
 
