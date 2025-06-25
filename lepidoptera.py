@@ -121,7 +121,7 @@ interface = gr.Interface(
     inputs=gr.Image(shape=(224, 224)),
     outputs=gr.Label(num_top_classes=5),
     title="Clasificador de mariposas y polillas (ResNet50)",
-    description="Carga una imagen de lepidópteros y obtén la predicción del modelo basado en ResNet50."
+    description="Sube una imagen de un lepidóptero y el modelo te dirá la especie."
 )
 
 # Launch the interface
